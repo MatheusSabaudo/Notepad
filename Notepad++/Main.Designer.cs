@@ -55,6 +55,7 @@
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highlightTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.programmerModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,12 +65,7 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkBlueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_LineNumbers = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +76,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -254,34 +251,41 @@
             this.wordWrapToolStripMenuItem,
             this.fontToolStripMenuItem,
             this.highlightTextToolStripMenuItem,
-            this.themeToolStripMenuItem});
+            this.programmerModeToolStripMenuItem});
             this.formatToolStripMenuItem.Name = "formatToolStripMenuItem";
             this.formatToolStripMenuItem.Size = new System.Drawing.Size(57, 19);
             this.formatToolStripMenuItem.Text = "Format";
             // 
             // wordWrapToolStripMenuItem
             // 
-            this.wordWrapToolStripMenuItem.Checked = true;
             this.wordWrapToolStripMenuItem.CheckOnClick = true;
-            this.wordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.wordWrapToolStripMenuItem.Text = "Word Wrap";
-            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wordWrapToolStripMenuItem.Text = "WordWrap";
+            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click_1);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // highlightTextToolStripMenuItem
             // 
+            this.highlightTextToolStripMenuItem.CheckOnClick = true;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
-            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.highlightTextToolStripMenuItem.Text = "Highlight Text";
             this.highlightTextToolStripMenuItem.Click += new System.EventHandler(this.highlightTextToolStripMenuItem_Click);
+            // 
+            // programmerModeToolStripMenuItem
+            // 
+            this.programmerModeToolStripMenuItem.CheckOnClick = true;
+            this.programmerModeToolStripMenuItem.Name = "programmerModeToolStripMenuItem";
+            this.programmerModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.programmerModeToolStripMenuItem.Text = "Programmer Mode";
+            this.programmerModeToolStripMenuItem.Click += new System.EventHandler(this.programmerModeToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -295,14 +299,14 @@
             // licenceToolStripMenuItem
             // 
             this.licenceToolStripMenuItem.Name = "licenceToolStripMenuItem";
-            this.licenceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenceToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.licenceToolStripMenuItem.Text = "Licence";
             this.licenceToolStripMenuItem.Click += new System.EventHandler(this.licenceToolStripMenuItem_Click);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -313,10 +317,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxt_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxt_text.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxt_text.Location = new System.Drawing.Point(13, 29);
+            this.rtxt_text.ForeColor = System.Drawing.Color.Black;
+            this.rtxt_text.Location = new System.Drawing.Point(29, 29);
             this.rtxt_text.Margin = new System.Windows.Forms.Padding(4);
             this.rtxt_text.Name = "rtxt_text";
-            this.rtxt_text.Size = new System.Drawing.Size(1054, 594);
+            this.rtxt_text.Size = new System.Drawing.Size(1036, 594);
             this.rtxt_text.TabIndex = 2;
             this.rtxt_text.Text = "";
             this.rtxt_text.TextChanged += new System.EventHandler(this.rtxt_text_TextChanged);
@@ -339,59 +344,19 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // themeToolStripMenuItem
+            // txt_LineNumbers
             // 
-            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darkToolStripMenuItem,
-            this.darkLightToolStripMenuItem,
-            this.darkBlueToolStripMenuItem,
-            this.lightToolStripMenuItem,
-            this.hackerToolStripMenuItem});
-            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.themeToolStripMenuItem.Text = "Theme";
-            // 
-            // darkToolStripMenuItem
-            // 
-            this.darkToolStripMenuItem.CheckOnClick = true;
-            this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            this.darkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.darkToolStripMenuItem.Text = "Dark";
-            this.darkToolStripMenuItem.Click += new System.EventHandler(this.darkToolStripMenuItem_Click);
-            // 
-            // darkLightToolStripMenuItem
-            // 
-            this.darkLightToolStripMenuItem.CheckOnClick = true;
-            this.darkLightToolStripMenuItem.Name = "darkLightToolStripMenuItem";
-            this.darkLightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.darkLightToolStripMenuItem.Text = "Dark Light";
-            this.darkLightToolStripMenuItem.Click += new System.EventHandler(this.darkLightToolStripMenuItem_Click);
-            // 
-            // darkBlueToolStripMenuItem
-            // 
-            this.darkBlueToolStripMenuItem.CheckOnClick = true;
-            this.darkBlueToolStripMenuItem.Name = "darkBlueToolStripMenuItem";
-            this.darkBlueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.darkBlueToolStripMenuItem.Text = "Dark Blue";
-            this.darkBlueToolStripMenuItem.Click += new System.EventHandler(this.darkBlueToolStripMenuItem_Click);
-            // 
-            // lightToolStripMenuItem
-            // 
-            this.lightToolStripMenuItem.Checked = true;
-            this.lightToolStripMenuItem.CheckOnClick = true;
-            this.lightToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-            this.lightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lightToolStripMenuItem.Text = "Light";
-            this.lightToolStripMenuItem.Click += new System.EventHandler(this.lightToolStripMenuItem_Click);
-            // 
-            // hackerToolStripMenuItem
-            // 
-            this.hackerToolStripMenuItem.CheckOnClick = true;
-            this.hackerToolStripMenuItem.Name = "hackerToolStripMenuItem";
-            this.hackerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hackerToolStripMenuItem.Text = "Hacker";
-            this.hackerToolStripMenuItem.Click += new System.EventHandler(this.hackerToolStripMenuItem_Click);
+            this.txt_LineNumbers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_LineNumbers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_LineNumbers.Location = new System.Drawing.Point(0, 29);
+            this.txt_LineNumbers.Multiline = true;
+            this.txt_LineNumbers.Name = "txt_LineNumbers";
+            this.txt_LineNumbers.Size = new System.Drawing.Size(28, 594);
+            this.txt_LineNumbers.TabIndex = 3;
+            this.txt_LineNumbers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_LineNumbers.Visible = false;
             // 
             // Main
             // 
@@ -399,6 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1067, 623);
+            this.Controls.Add(this.txt_LineNumbers);
             this.Controls.Add(this.rtxt_text);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -440,7 +406,6 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highlightTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
@@ -452,12 +417,9 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
-        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darkToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darkLightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darkBlueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hackerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem programmerModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordWrapToolStripMenuItem;
+        private System.Windows.Forms.TextBox txt_LineNumbers;
     }
 }
 

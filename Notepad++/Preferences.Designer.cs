@@ -36,12 +36,13 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_preferences = new System.Windows.Forms.Label();
+            this.lbl_theme = new System.Windows.Forms.Label();
             this.cmb_theme = new System.Windows.Forms.ComboBox();
             this.cmb_language = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_language = new System.Windows.Forms.Label();
             this.btn_confirm = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -108,27 +109,27 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lbl_preferences
             // 
-            this.label1.Font = new System.Drawing.Font("Cascadia Mono Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(298, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(502, 43);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "PREFERENCES";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_preferences.Font = new System.Drawing.Font("Cascadia Mono Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_preferences.ForeColor = System.Drawing.Color.White;
+            this.lbl_preferences.Location = new System.Drawing.Point(298, 48);
+            this.lbl_preferences.Name = "lbl_preferences";
+            this.lbl_preferences.Size = new System.Drawing.Size(502, 43);
+            this.lbl_preferences.TabIndex = 2;
+            this.lbl_preferences.Text = "PREFERENCES";
+            this.lbl_preferences.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lbl_theme
             // 
-            this.label3.Font = new System.Drawing.Font("Cascadia Mono ExtraLight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(298, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(490, 33);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "THEME";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_theme.Font = new System.Drawing.Font("Cascadia Mono ExtraLight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_theme.ForeColor = System.Drawing.Color.White;
+            this.lbl_theme.Location = new System.Drawing.Point(298, 121);
+            this.lbl_theme.Name = "lbl_theme";
+            this.lbl_theme.Size = new System.Drawing.Size(490, 33);
+            this.lbl_theme.TabIndex = 4;
+            this.lbl_theme.Text = "THEME";
+            this.lbl_theme.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmb_theme
             // 
@@ -145,27 +146,38 @@
             this.cmb_language.Name = "cmb_language";
             this.cmb_language.Size = new System.Drawing.Size(490, 21);
             this.cmb_language.TabIndex = 7;
+            this.cmb_language.SelectedIndexChanged += new System.EventHandler(this.cmb_language_SelectedIndexChanged);
             // 
-            // label2
+            // lbl_language
             // 
-            this.label2.Font = new System.Drawing.Font("Cascadia Mono ExtraLight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(298, 214);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(490, 33);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "LANGUAGE";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_language.Font = new System.Drawing.Font("Cascadia Mono ExtraLight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_language.ForeColor = System.Drawing.Color.White;
+            this.lbl_language.Location = new System.Drawing.Point(298, 214);
+            this.lbl_language.Name = "lbl_language";
+            this.lbl_language.Size = new System.Drawing.Size(490, 33);
+            this.lbl_language.TabIndex = 6;
+            this.lbl_language.Text = "LANGUAGE";
+            this.lbl_language.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_confirm
             // 
-            this.btn_confirm.Location = new System.Drawing.Point(469, 319);
+            this.btn_confirm.Location = new System.Drawing.Point(381, 333);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(143, 56);
-            this.btn_confirm.TabIndex = 8;
+            this.btn_confirm.TabIndex = 0;
             this.btn_confirm.Text = "CONFIRM";
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(559, 333);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(143, 56);
+            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.Text = "CANCEL";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // Preferences
             // 
@@ -173,12 +185,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_confirm);
             this.Controls.Add(this.cmb_language);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_language);
             this.Controls.Add(this.cmb_theme);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_theme);
+            this.Controls.Add(this.lbl_preferences);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -205,11 +218,12 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licenceToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_preferences;
+        private System.Windows.Forms.Label lbl_theme;
         private System.Windows.Forms.ComboBox cmb_theme;
         private System.Windows.Forms.ComboBox cmb_language;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_language;
         private System.Windows.Forms.Button btn_confirm;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

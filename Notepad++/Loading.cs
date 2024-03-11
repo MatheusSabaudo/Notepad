@@ -33,7 +33,7 @@ namespace Notepad__
                 // Stop the timer if progress reaches 100
                 tmr_loadingtime.Stop();
 
-                new Preferences().Show();
+                new Main().Show();
                 this.Hide();
             }
         }

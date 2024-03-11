@@ -22,8 +22,11 @@ namespace Notepad__
             InitializeComponent();
         }
 
+
         private void Main_Load(object sender, EventArgs e)
         {
+            //THEME CONFIGURATION BY THE THEME.MSR FILE
+
             StreamReader srf = new StreamReader("Theme.msr");
             string file = srf.ReadLine();
             
@@ -34,49 +37,163 @@ namespace Notepad__
                 this.ForeColor = Color.White;
                 rtxt_text.BackColor = Color.Black;
                 rtxt_text.ForeColor = Color.White;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }else if(file == "Dark Light")
+                fileToolStripMenuItem.ForeColor = Color.Black;
+                editToolStripMenuItem.ForeColor = Color.Black;
+                formatToolStripMenuItem.ForeColor = Color.Black;
+                helpToolStripMenuItem.ForeColor = Color.Black;
+                txt_LineNumbers.BackColor = Color.Black;
+                txt_LineNumbers.ForeColor = Color.Gray;
+            }
+            else if(file == "Dark Light")
             {
                 this.BackColor = Color.Black;
                 this.ForeColor = Color.DarkGray;
                 rtxt_text.BackColor = Color.Black;
                 rtxt_text.ForeColor = Color.DarkGray;
-
-                darkToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }else if(file == "Dark Blue")
-            {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.DarkBlue;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.DarkBlue;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }else if(file == "Hacker")
-            {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.LimeGreen;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.LimeGreen;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                darkToolStripMenuItem.Checked = false;
+                fileToolStripMenuItem.ForeColor = Color.Black;
+                editToolStripMenuItem.ForeColor = Color.Black;
+                formatToolStripMenuItem.ForeColor = Color.Black;
+                helpToolStripMenuItem.ForeColor = Color.Black;
+                txt_LineNumbers.BackColor = Color.Black;
+                txt_LineNumbers.ForeColor = Color.Gray;
             }
-
+            else if(file == "Dark Blue")
+            {
+                this.BackColor = Color.Black;
+                this.ForeColor = Color.Aqua;
+                rtxt_text.BackColor = Color.Black;
+                rtxt_text.ForeColor = Color.Aqua;
+                fileToolStripMenuItem.ForeColor = Color.Black;
+                editToolStripMenuItem.ForeColor = Color.Black;
+                formatToolStripMenuItem.ForeColor = Color.Black;
+                helpToolStripMenuItem.ForeColor = Color.Black;
+                txt_LineNumbers.BackColor = Color.Black;
+                txt_LineNumbers.ForeColor = Color.DarkGray;
+            }
+            else if(file == "Hacker")
+            {
+                this.BackColor = Color.Black;
+                this.ForeColor = Color.Black;
+                rtxt_text.BackColor = Color.Black;
+                rtxt_text.ForeColor = Color.Lime;
+                txt_LineNumbers.BackColor = Color.Black;
+                txt_LineNumbers.ForeColor = Color.Gray;
+            }
+            else if(file == "Light")
+            {
+                this.BackColor = Color.White;
+                this.ForeColor = Color.Black;
+                rtxt_text.BackColor = Color.White;
+                rtxt_text.ForeColor = Color.Black;
+                txt_LineNumbers.BackColor = Color.White;
+                txt_LineNumbers.ForeColor = Color.Gray;
+            }
+            else
+                MessageBox.Show("Theme not available yet!", "CRITICAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             srf.Close();
 
 
+
+
+            //LANGUAGE CONFIGURATION BY THE LANGUAGE.MSR FILE
+            
+            StreamReader sr_language = new StreamReader("Languages.msr"); //READ THE LANGUAGE FILE TO SET THE LANGUAGE IN THE PREFERENCES FORM
+            string language = sr_language.ReadLine();
+
+            if (language == "Italian")                              //SET LANGUAGE TO ITALIAN IN PREFERENCES FORM
+            {
+                fileToolStripMenuItem.Text = "Archivio";
+                editToolStripMenuItem.Text = "Modifica";
+                formatToolStripMenuItem.Text = "Visualizza";
+                helpToolStripMenuItem.Text = "Aiuto";
+
+                newToolStripMenuItem.Text = "Nuovo";
+                openToolStripMenuItem.Text = "Apri";
+                saveToolStripMenuItem.Text = "Salva";
+                saveAsToolStripMenuItem.Text = "Salva con nome";
+                printPreviewToolStripMenuItem.Text = "Imposta pagina";
+                printToolStripMenuItem.Text = "Stampa";
+                exitToolStripMenuItem.Text = "Esci";
+
+                undoToolStripMenuItem.Text = "Indietro";
+                redoToolStripMenuItem.Text = "Avanti";
+                cutToolStripMenuItem.Text = "Taglia";
+                copyToolStripMenuItem.Text = "Copia";
+                pasteToolStripMenuItem.Text = "Incolla";
+                selectAllToolStripMenuItem.Text = "Seleziona Tutto";
+                deleteToolStripMenuItem.Text = "Cancella";
+
+                wordWrapToolStripMenuItem.Text = "A capo automatico";
+                fontToolStripMenuItem.Text = "Fonte";
+                highlightTextToolStripMenuItem.Text = "Sottolineare";
+
+                licenceToolStripMenuItem.Text = "Licenza";
+                preferencesToolStripMenuItem.Text = "Preferenze";
+            }
+            else if (language == "Portuguese")                      //SET LANGUAGE TO PORTOGHESE IN PREFERENCES FORM
+            {
+                fileToolStripMenuItem.Text = "File";
+                editToolStripMenuItem.Text = "Modificar";
+                formatToolStripMenuItem.Text = "Formato";
+                helpToolStripMenuItem.Text = "Ajuda";
+
+                newToolStripMenuItem.Text = "Novo";
+                openToolStripMenuItem.Text = "Abrir";
+                saveToolStripMenuItem.Text = "Salvar";
+                saveAsToolStripMenuItem.Text = "Salvar como";
+                printPreviewToolStripMenuItem.Text = "Pre-Visualizar";
+                printToolStripMenuItem.Text = "Imprimir";
+                exitToolStripMenuItem.Text = "Sair";
+
+                undoToolStripMenuItem.Text = "Desfazer";
+                redoToolStripMenuItem.Text = "Refazer";
+                cutToolStripMenuItem.Text = "Cortar";
+                copyToolStripMenuItem.Text = "Copiar";
+                pasteToolStripMenuItem.Text = "Colar";
+                selectAllToolStripMenuItem.Text = "Selecionar Tudo";
+                deleteToolStripMenuItem.Text = "Deletar";
+
+                wordWrapToolStripMenuItem.Text = "Cortar automaticamente";
+                fontToolStripMenuItem.Text = "Fonte";
+                highlightTextToolStripMenuItem.Text = "Demarcar";
+
+                licenceToolStripMenuItem.Text = "Licença";
+                preferencesToolStripMenuItem.Text = "Preferencias";
+            }
+            else if (language == "English")                         //SET LANGUAGE TO ENGLISH IN PREFERENCES FORM
+            {
+                fileToolStripMenuItem.Text = "File";
+                editToolStripMenuItem.Text = "Edit";
+                formatToolStripMenuItem.Text = "Format";
+                helpToolStripMenuItem.Text = "Help";
+
+                newToolStripMenuItem.Text = "New";
+                openToolStripMenuItem.Text = "Open";
+                saveToolStripMenuItem.Text = "Save";
+                saveAsToolStripMenuItem.Text = "Save As";
+                printPreviewToolStripMenuItem.Text = "Print Preview";
+                printToolStripMenuItem.Text = "Print";
+                exitToolStripMenuItem.Text = "Exit";
+
+                undoToolStripMenuItem.Text = "Undo";
+                redoToolStripMenuItem.Text = "Redo";
+                cutToolStripMenuItem.Text = "Cut";
+                copyToolStripMenuItem.Text = "Copy";
+                pasteToolStripMenuItem.Text = "Paste";
+                selectAllToolStripMenuItem.Text = "Select All";
+                deleteToolStripMenuItem.Text = "Delete";
+
+                wordWrapToolStripMenuItem.Text = "Word Wrap";
+                fontToolStripMenuItem.Text = "Font";
+                highlightTextToolStripMenuItem.Text = "Highlight Text";
+
+                licenceToolStripMenuItem.Text = "License";
+                preferencesToolStripMenuItem.Text = "Preferences";
+            }
+            else
+                MessageBox.Show("Language not available yet!", "CRITICAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            sr_language.Close();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,7 +203,7 @@ namespace Notepad__
                 MessageBox.Show("Would you like to save your work before closing?", "MSR Notepad Warning", MessageBoxButtons.YesNoCancel);
                 if(DialogResult == DialogResult.Yes)
                 {
-
+                    //DO
                 }
                 else if(DialogResult == DialogResult.Cancel)
                     return;
@@ -99,15 +216,15 @@ namespace Notepad__
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "TextDocument|*.txt", ValidateNames = true, Multiselect = false })
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "TextDocument|*.txt", ValidateNames = true, Multiselect = false })  //ONLY ACCEPTS WIN32 NAMES, CAN'T SELECT MORE THAN 1 FILE
             {
                 if(ofd.ShowDialog() == DialogResult.OK)
                 {
                     using (StreamReader sr = new StreamReader(ofd.FileName))
                     {
                         filePath = ofd.FileName;
-                        Task <string> text = sr.ReadToEndAsync();
-                        rtxt_text.Text = text.Result;
+                        string text = sr.ReadToEnd();
+                        rtxt_text.Text = text;
                     }
                 }
             }
@@ -123,7 +240,7 @@ namespace Notepad__
                     {
                         using (StreamWriter sw = new StreamWriter(sfd.FileName))
                         {
-                            sw.WriteLineAsync(rtxt_text.Text);
+                            sw.WriteLine(rtxt_text.Text);
                             
                         }
                     }
@@ -133,7 +250,7 @@ namespace Notepad__
             {
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
-                    sw.WriteLineAsync(rtxt_text.Text);
+                    sw.WriteLine(rtxt_text.Text);
                 }
             }
         }
@@ -146,7 +263,7 @@ namespace Notepad__
                 {
                     using (StreamWriter sw = new StreamWriter(sfd.FileName))
                     {
-                        sw.WriteLineAsync(rtxt_text.Text);
+                        sw.WriteLine(rtxt_text.Text);
 
                     }
                 }
@@ -215,6 +332,9 @@ namespace Notepad__
 
         private void rtxt_text_TextChanged(object sender, EventArgs e)
         {
+
+            UpdateLineNumbers();
+
             if (rtxt_text.Text.Length > 0)
             {
                 cutToolStripMenuItem.Enabled = true;
@@ -227,17 +347,15 @@ namespace Notepad__
             }
         }
 
-        private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdateLineNumbers()
         {
-            if (wordWrapToolStripMenuItem.Checked == true)
+            txt_LineNumbers.Text = ""; 
+
+            int totalLines = rtxt_text.Lines.Length;
+
+            for (int i = 1; i <= totalLines; i++)
             {
-                wordWrapToolStripMenuItem.Checked = false;
-                rtxt_text.WordWrap = false;
-            }
-            else
-            {
-                wordWrapToolStripMenuItem.Checked = true;
-                rtxt_text.WordWrap = true;
+                txt_LineNumbers.AppendText(i.ToString() + Environment.NewLine);
             }
         }
 
@@ -249,7 +367,16 @@ namespace Notepad__
 
         private void highlightTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rtxt_text.SelectionBackColor = Color.Yellow;
+
+            if(highlightTextToolStripMenuItem.Checked == true) 
+                rtxt_text.SelectionBackColor = Color.Yellow;
+            
+            if(highlightTextToolStripMenuItem.Checked == false && this.BackColor == Color.Black)
+                rtxt_text.SelectionBackColor = Color.Black;
+
+            if (highlightTextToolStripMenuItem.Checked == false && this.BackColor == Color.White)
+                rtxt_text.SelectionBackColor = Color.White;
+
         }
 
         private void licenceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -265,88 +392,25 @@ namespace Notepad__
             this.Hide();
         }
 
-        private void darkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(darkToolStripMenuItem.Checked == true)
-            {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.White;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.White;
 
-                darkLightToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }
-            
+        private void wordWrapToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            if(wordWrapToolStripMenuItem.Checked == true)
+                rtxt_text.WordWrap = true;
+
+            if(wordWrapToolStripMenuItem.Checked == false)
+                rtxt_text.WordWrap = false;
         }
 
-        private void darkLightToolStripMenuItem_Click(object sender, EventArgs e)
+        private void programmerModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(darkLightToolStripMenuItem.Checked == true)
+            if(programmerModeToolStripMenuItem.Checked == true)
             {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.DarkGray;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.DarkGray;
-
-                darkToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
+                txt_LineNumbers.Visible = true;
+                wordWrapToolStripMenuItem.Enabled = false;
             }
-            
-        }
 
-        private void darkBlueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(darkBlueToolStripMenuItem.Checked == true)
-            {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.DarkBlue;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.DarkBlue;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }
-            
-        }
-
-        private void lightToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(lightToolStripMenuItem.Checked == true)
-            {
-                this.BackColor = Color.White;
-                this.ForeColor = Color.Black;
-                rtxt_text.BackColor = Color.White;
-                rtxt_text.ForeColor = Color.Black;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                darkToolStripMenuItem.Checked = false;
-                hackerToolStripMenuItem.Checked = false;
-            }
-            
-        }
-
-        private void hackerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(hackerToolStripMenuItem.Checked == true)
-            {
-                this.BackColor = Color.Black;
-                this.ForeColor = Color.LimeGreen;
-                rtxt_text.BackColor = Color.Black;
-                rtxt_text.ForeColor = Color.LimeGreen;
-
-                darkLightToolStripMenuItem.Checked = false;
-                darkBlueToolStripMenuItem.Checked = false;
-                lightToolStripMenuItem.Checked = false;
-                darkToolStripMenuItem.Checked = false;
-            }
         }
     }
 }

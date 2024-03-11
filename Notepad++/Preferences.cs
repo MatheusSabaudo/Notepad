@@ -15,30 +15,29 @@ namespace Notepad__
     public partial class Preferences : Form
     {
 
-
         public Preferences()
         {
             InitializeComponent();
 
             // Available themes
 
-            cmb_theme.Items.Add("Dark");
-            cmb_theme.Items.Add("Dark Light");
-            cmb_theme.Items.Add("Dark Blue");
-            cmb_theme.Items.Add("Light");
-            cmb_theme.Items.Add("Hacker");
+            cmb_theme.Items.Add("Dark");                //01
+            cmb_theme.Items.Add("Dark Light");          //02
+            cmb_theme.Items.Add("Dark Blue");           //03
+            cmb_theme.Items.Add("Light");               //04
+            cmb_theme.Items.Add("Hacker");              //05
 
             // default theme
-            cmb_theme.SelectedIndex = 0;
+            cmb_theme.SelectedIndex = 0; //DARK
 
             // Available languages
 
-            cmb_language.Items.Add("English");
-            cmb_language.Items.Add("Italian");
-            cmb_language.Items.Add("Portuguese");
+            cmb_language.Items.Add("English");          //01
+            cmb_language.Items.Add("Italian");          //02
+            cmb_language.Items.Add("Portuguese");       //03
 
-            // default theme
-            cmb_language.SelectedIndex = 0;
+            // default language
+            cmb_language.SelectedIndex = 0; //ENGLISH
         }
 
 
@@ -58,36 +57,73 @@ namespace Notepad__
             menuStrip1.Visible = true;
         }
 
-        public event EventHandler ThemeChanged;
-        public string SelectedTheme { get; private set; }
-
         private void btn_confirm_Click(object sender, EventArgs e)
         {
             //THEME SETUP
 
-            StreamWriter sw = new StreamWriter("Theme.msr", false);
-            sw.WriteLine(cmb_theme.SelectedItem.ToString());
-            sw.Close();
+            StreamWriter sw_theme = new StreamWriter("Theme.msr", false);
+            sw_theme.WriteLine(cmb_theme.SelectedItem.ToString());
+            sw_theme.Close();
 
             //LANGUAGE SETUP
-            if (cmb_language.SelectedIndex == 1)
+
+            StreamWriter sw_language = new StreamWriter("Languages.msr", false); //LANGUAGE SELECTED TO USE
+            sw_language.WriteLine(cmb_language.SelectedItem.ToString());
+            sw_language.Close();
+
+            new Main().Show();                                      //RETURNS TO THE MAIN PAGE WITH THE CONFIG SELECTED
+            this.Hide();
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            new Main().Show();                                      //RETURNS TO THE MAIN PAGE DISCARDING ALL THE CONFIG SELECTED
+            this.Hide();
+        }
+
+        private void cmb_language_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StreamWriter sw_language = new StreamWriter("Languages.msr", false); //LANGUAGE SELECTED TO USE
+            sw_language.WriteLine(cmb_language.SelectedItem.ToString());
+            sw_language.Close();
+
+            StreamReader sr_language = new StreamReader("Languages.msr"); //READ THE LANGUAGE FILE TO SET THE LANGUAGE IN THE PREFERENCES FORM
+            string language = sr_language.ReadLine();
+
+            if (language == "Italian")                              //SET LANGUAGE TO ITALIAN IN PREFERENCES FORM
             {
+                lbl_preferences.Text = "PREFERENZE";
+                lbl_theme.Text = "TEMA";
+                lbl_language.Text = "LINGUA";
                 btn_confirm.Text = "CONFERMA";
+                btn_cancel.Text = "CANCELLA";
                 fileToolStripMenuItem.Text = "Archivio";
                 helpToolStripMenuItem.Text = "Aiuto";
             }
-
-            if(cmb_language.SelectedIndex == -1 && cmb_theme.SelectedIndex == -1)
+            else if (language == "Portuguese")                      //SET LANGUAGE TO PORTOGHESE IN PREFERENCES FORM
             {
-                MessageBox.Show("Empty values are not accepted! \n Campi lasciati vuoti non sono accetabili! \n Campos deixados em branco nao sao aceitaveis!", "CRITICAL ERROR", MessageBoxButtons.OK);
+                lbl_preferences.Text = "PREFERENCIAS";
+                lbl_theme.Text = "TEMA";
+                lbl_language.Text = "LINGUA";
+                btn_confirm.Text = "CONFIRMAR";
+                btn_cancel.Text = "CANCELAR";
+                fileToolStripMenuItem.Text = "File";
+                helpToolStripMenuItem.Text = "Ajuda";
+            }
+            else if(language == "English")
+            {
+                lbl_preferences.Text = "PREFERENCES";
+                lbl_theme.Text = "THEME";
+                lbl_language.Text = "LANGUAGE";
+                btn_confirm.Text = "CONFIRM";
+                btn_cancel.Text = "CANCEL";
+                fileToolStripMenuItem.Text = "File";
+                helpToolStripMenuItem.Text = "Help";
             }
             else
-            {
-                new Main().Show();
-                this.Hide();
-            }
-        }
+                MessageBox.Show("Language not available yet!", "CRITICAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-       
+            sr_language.Close();
+        }
     }
 }
