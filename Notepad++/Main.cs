@@ -22,7 +22,6 @@ namespace Notepad__
             InitializeComponent();
         }
 
-
         private void Main_Load(object sender, EventArgs e)
         {
             //THEME CONFIGURATION BY THE THEME.MSR FILE
@@ -203,7 +202,27 @@ namespace Notepad__
                 MessageBox.Show("Would you like to save your work before closing?", "MSR Notepad Warning", MessageBoxButtons.YesNoCancel);
                 if(DialogResult == DialogResult.Yes)
                 {
-                    //DO
+                    if (string.IsNullOrEmpty(filePath))
+                    {
+                        using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "TextDocument|*.txt", ValidateNames = true })
+                        {
+                            if (sfd.ShowDialog() == DialogResult.OK)
+                            {
+                                using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                                {
+                                    sw.WriteLine(rtxt_text.Text);
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(filePath))
+                        {
+                            sw.WriteLine(rtxt_text.Text);
+                        }
+                    }
                 }
                 else if(DialogResult == DialogResult.Cancel)
                     return;
