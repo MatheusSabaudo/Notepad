@@ -23,8 +23,33 @@ namespace Notepad__
         private void FindReplace_Load(object sender, EventArgs e)
         {
             StreamReader sr = new StreamReader("Languages.msr");
+            string language = sr.ReadLine();
 
-            //TRANSLATION PART - TO DO
+            if (language == "Italian")                              //SET LANGUAGE TO ITALIAN IN PREFERENCES FORM
+            {
+                lbl_find.Text = "Trova";
+                lbl_replace.Text = "Sostituisce";
+                btn_action.Text = "Trova/Sostituisce";
+                btn_cancel.Text = "Cancella";
+            }
+            else if (language == "Portuguese")                      //SET LANGUAGE TO PORTOGHESE IN PREFERENCES FORM
+            {
+                lbl_find.Text = "Encontra";
+                lbl_replace.Text = "Substituir";
+                btn_action.Text = "Encontrar/Substituir";
+                btn_cancel.Text = "Anular";
+            }
+            else if (language == "English")                         //SET LANGUAGE TO ENGLISH IN PREFERENCES FORM
+            {
+                lbl_find.Text = "Find";
+                lbl_replace.Text = "Replace";
+                btn_action.Text = "Find/Replace";
+                btn_cancel.Text = "Cancel";
+            }
+            else
+                MessageBox.Show("Language not available yet!", "CRITICAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            sr.Close();
 
         }
 

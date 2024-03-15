@@ -59,3 +59,16 @@ C:\Users\matte\Documents\Notepad\Notepad++\obj\Debug\Notepad++.csproj.GenerateRe
 C:\Users\matte\Documents\Notepad\Notepad++\obj\Debug\Notepad++.csproj.CoreCompileInputs.cache
 C:\Users\matte\Documents\Notepad\Notepad++\obj\Debug\Notepad++.exe
 C:\Users\matte\Documents\Notepad\Notepad++\obj\Debug\Notepad++.pdb
+C:\Users\matte\Desktop\Notepad\Notepad++\bin\Debug\Notepad++.exe.config
+C:\Users\matte\Desktop\Notepad\Notepad++\bin\Debug\Notepad++.exe
+C:\Users\matte\Desktop\Notepad\Notepad++\bin\Debug\Notepad++.pdb
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad++.csproj.AssemblyReference.cache
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad__.FindReplace.resources
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad__.Loading.resources
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad__.Main.resources
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad__.Preferences.resources
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad__.Properties.Resources.resources
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad++.csproj.GenerateResource.cache
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad++.csproj.CoreCompileInputs.cache
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad++.exe
+C:\Users\matte\Desktop\Notepad\Notepad++\obj\Debug\Notepad++.pdb
