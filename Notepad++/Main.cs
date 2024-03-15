@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
+using System.Text.RegularExpressions;
 
 namespace Notepad__
 {
@@ -431,5 +432,62 @@ namespace Notepad__
             }
 
         }
+
+        private void findAndorReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //FIND AND REPLACE CODE
+            FindReplace findReplaceForm = new FindReplace();
+            findReplaceForm.FindReplaceAction += FindReplaceActionHandler;
+           
+
+            //HIGHLIGH CONFIGURATION AFTER FINDREPLACE FORMCLOSED
+            findReplaceForm.FormClosed += FindReplaceForm_FormClosed; // Aggiungi un gestore per l'evento FormClosed
+            findReplaceForm.ShowDialog();
+        }
+
+        private void FindReplaceActionHandler(string findText, string replaceText, bool replaceMode)
+        {
+            if (replaceMode)
+            {
+                // Esegui la sostituzione del testo nella RichTextBox
+                if (!string.IsNullOrEmpty(findText) && !string.IsNullOrEmpty(replaceText))
+                {
+                    string pattern = @"\b" + Regex.Escape(findText) + @"\b";
+                    rtxt_text.Text = Regex.Replace(rtxt_text.Text, pattern, replaceText);
+                }
+            }
+            else
+            {
+                // Esegui la ricerca del testo nella RichTextBox
+                if (!string.IsNullOrEmpty(findText))
+                {
+                    string pattern = @"\b" + Regex.Escape(findText) + @"\b";
+                    Match match = Regex.Match(rtxt_text.Text, pattern);
+                    if (match.Success)
+                    {
+                        rtxt_text.Select(match.Index, match.Length);
+                        rtxt_text.SelectionBackColor = Color.Yellow;
+
+                        rtxt_text.ScrollToCaret(); // Assicura che il testo trovato sia visibile nella RichTextBox
+                        rtxt_text.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Text not found", "Find", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void FindReplaceForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(rtxt_text.SelectionBackColor == Color.Yellow && this.BackColor == Color.Black)
+                rtxt_text.SelectionBackColor = Color.Black;
+            else
+                rtxt_text.SelectionBackColor = Color.White;
+        }
     }
+
+
 }
