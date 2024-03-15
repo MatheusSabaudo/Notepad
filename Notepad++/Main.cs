@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Text.RegularExpressions;
+using System.Net.Configuration;
 
 namespace Notepad__
 {
@@ -18,6 +19,9 @@ namespace Notepad__
 
         string filePath = "";   //file location path
 
+        //EXTENSIONS CONFIG IN THE SAVE PAGE
+        SaveFileDialog sfd = new SaveFileDialog();
+
         public Main()
         {
             InitializeComponent();
@@ -25,8 +29,8 @@ namespace Notepad__
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //THEME CONFIGURATION BY THE THEME.MSR FILE
 
+            //THEME CONFIGURATION BY THE THEME.MSR FILE
             StreamReader srf = new StreamReader("Theme.msr");
             string file = srf.ReadLine();
             
@@ -40,6 +44,7 @@ namespace Notepad__
                 fileToolStripMenuItem.ForeColor = Color.Black;
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
+                languageToolStripMenuItem.ForeColor= Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.Gray;
@@ -53,6 +58,7 @@ namespace Notepad__
                 fileToolStripMenuItem.ForeColor = Color.Black;
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
+                languageToolStripMenuItem.ForeColor = Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.Gray;
@@ -66,6 +72,7 @@ namespace Notepad__
                 fileToolStripMenuItem.ForeColor = Color.Black;
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
+                languageToolStripMenuItem.ForeColor = Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.DarkGray;
@@ -486,6 +493,269 @@ namespace Notepad__
                 rtxt_text.SelectionBackColor = Color.Black;
             else
                 rtxt_text.SelectionBackColor = Color.White;
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (cToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "#include <stdio.h>\r\n\r\nint main() {\r\n    printf(\"Hello, World!\\n\");\r\n    return 0;\r\n}";
+            }
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            cToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.c";
+            sfd.Filter = "C Language | *.c";
+        }
+
+        private void cToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (cToolStripMenuItem2.Checked == true)
+                    rtxt_text.Text = "#include <iostream>\r\n\r\nint main() {\r\n    std::cout << \"Hello, World!\" << std::endl;\r\n    return 0;\r\n}";
+            }
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            cToolStripMenuItem2.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.cpp";
+            sfd.Filter = "C++ Language | *.cpp";
+        }
+
+        private void cToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (cToolStripMenuItem1.Checked == true)
+                    rtxt_text.Text = "using System;\r\n\r\nclass Program {\r\n    static void Main(string[] args) {\r\n        Console.WriteLine(\"Hello, World!\");\r\n    }\r\n}";
+            }
+            
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            cToolStripMenuItem1.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            //SAVE FILE DIALOG PRESET SETTINGS
+            sfd.FileName = "new.cs";
+            sfd.Filter = "C# Language | *.cs";
+        }
+
+        private void pythonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (pythonToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "print(\"Hello, World!\")";
+            }
+
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            pythonToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+
+            //SAVE FILE DIALOG PRESET SETTINGS
+            sfd.FileName = "new.py";
+            sfd.Filter = "Python Language | *.py";
+        }
+
+        private void javaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (javaToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "public class Main\r\n        {\\r\\n public static void main(String[] args)\r\n            {\\r\\n System.out.println(\\\"Hello, World!\\\");\\r\\n    }\\r\\n}";
+            }
+            
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            javaToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.java";
+            sfd.Filter = "Java Language | *.java";
+        }
+
+        private void javaScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (javaScriptToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "console.log(\"Hello, World!\");";
+            }
+            
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            javaScriptToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.js";
+            sfd.Filter = "JavaScript Language | *.js";
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (hTMLToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Hello, World!</title>\r\n</head>\r\n<body>\r\n    <h1>Hello, World!</h1>\r\n</body>\r\n</html>";
+            }
+            
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            hTMLToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.html";
+            sfd.Filter = "HTML File | *.html";
+        }
+
+        private void cSSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (cSSToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "/* CSS Stylesheet for Hello World */\r\nbody {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n    font-family: Arial, sans-serif;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n}";
+            }
+            
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+            pHPToolStripMenuItem.Checked = false;
+
+            cSSToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.css";
+            sfd.Filter = "CSS File | *.css";
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MODEL PRE-SELECTED IF THE USER SELECT THE LANGUAGE BEFORE WRITING ANYTHING IN THE NOTEPAD
+            DialogResult result = MessageBox.Show("Would you like to pre-load an existing base model for this language?", "MSR Notepad", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (pHPToolStripMenuItem.Checked == true)
+                    rtxt_text.Text = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Hello, World!</title>\r\n</head>\r\n<body>\r\n    <?php echo \"Hello, World!\"; ?>\r\n</body>\r\n</html>";
+            }
+
+            //CHECKING FALSE TO ANOTHER OPTIONS IF ACTIVATED
+            cToolStripMenuItem2.Checked = false;
+            cToolStripMenuItem1.Checked = false;
+            cToolStripMenuItem.Checked = false;
+            pythonToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            hTMLToolStripMenuItem.Checked = false;
+            cSSToolStripMenuItem.Checked = false;
+            javaToolStripMenuItem.Checked = false;
+
+            pHPToolStripMenuItem.Checked = true;
+            programmerModeToolStripMenuItem_Click(programmerModeToolStripMenuItem, EventArgs.Empty);
+
+            sfd.FileName = "new.php";
+            sfd.Filter = "PHP Language | *.php";
         }
     }
 
