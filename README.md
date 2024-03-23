@@ -34,6 +34,12 @@ Notepad++ è un semplice editor di testo che fornisce diverse funzionalità util
 
 7. **Stampa e Anteprima di Stampa**
    - Possibilità di stampare il documento o visualizzarne un'anteprima prima della stampa.
+  
+8. **4 Linguaggi di visualizzazione disponibili**
+   - English, Italian and Portughese
+  
+9. **4 Tipi di criptography disponibili**
+   - MD5, SHA-1, SHA-256, SHA-512
 
 ## Requisiti di Sistema
 
@@ -47,3 +53,4 @@ Notepad++ è un semplice editor di testo che fornisce diverse funzionalità util
 3. Configura il tema e la lingua dell'interfaccia utente tramite i file di configurazione esterni.
 4. Utilizza le opzioni di formattazione e modifica per personalizzare l'aspetto del testo.
 5. Sfrutta le funzionalità di ricerca e sostituzione per trovare e modificare il testo all'interno del documento.
+6. Sfrutta le funzionalità di crittografia per creare una maggiore sicurezza durante le creazioni delle note.
