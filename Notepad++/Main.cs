@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Text.RegularExpressions;
 using System.Net.Configuration;
+using System.Security.Cryptography;
 
 namespace Notepad__
 {
@@ -45,6 +46,7 @@ namespace Notepad__
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
                 languageToolStripMenuItem.ForeColor= Color.Black;
+                decryptEncriptyToolStripMenuItem.ForeColor= Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.Gray;
@@ -59,6 +61,7 @@ namespace Notepad__
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
                 languageToolStripMenuItem.ForeColor = Color.Black;
+                decryptEncriptyToolStripMenuItem.ForeColor = Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.Gray;
@@ -73,6 +76,7 @@ namespace Notepad__
                 editToolStripMenuItem.ForeColor = Color.Black;
                 formatToolStripMenuItem.ForeColor = Color.Black;
                 languageToolStripMenuItem.ForeColor = Color.Black;
+                decryptEncriptyToolStripMenuItem.ForeColor = Color.Black;
                 helpToolStripMenuItem.ForeColor = Color.Black;
                 txt_LineNumbers.BackColor = Color.Black;
                 txt_LineNumbers.ForeColor = Color.DarkGray;
@@ -112,6 +116,8 @@ namespace Notepad__
                 fileToolStripMenuItem.Text = "Archivio";
                 editToolStripMenuItem.Text = "Modifica";
                 formatToolStripMenuItem.Text = "Visualizza";
+                languageToolStripMenuItem.Text = "Lingua";
+                decryptEncriptyToolStripMenuItem.Text = "Crittografia";
                 helpToolStripMenuItem.Text = "Aiuto";
 
                 newToolStripMenuItem.Text = "Nuovo";
@@ -142,6 +148,8 @@ namespace Notepad__
                 fileToolStripMenuItem.Text = "File";
                 editToolStripMenuItem.Text = "Modificar";
                 formatToolStripMenuItem.Text = "Formato";
+                languageToolStripMenuItem.Text = "Lingua";
+                decryptEncriptyToolStripMenuItem.Text = "Criptografia";
                 helpToolStripMenuItem.Text = "Ajuda";
 
                 newToolStripMenuItem.Text = "Novo";
@@ -172,6 +180,8 @@ namespace Notepad__
                 fileToolStripMenuItem.Text = "File";
                 editToolStripMenuItem.Text = "Edit";
                 formatToolStripMenuItem.Text = "Format";
+                languageToolStripMenuItem.Text = "Language";
+                decryptEncriptyToolStripMenuItem.Text = "Decrypt/Encrypt";
                 helpToolStripMenuItem.Text = "Help";
 
                 newToolStripMenuItem.Text = "New";
@@ -207,8 +217,8 @@ namespace Notepad__
         {
             if(rtxt_text.Text != "")
             {
-                MessageBox.Show("Would you like to save your work before closing?", "MSR Notepad Warning", MessageBoxButtons.YesNoCancel);
-                if(DialogResult == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Would you like to save your work before closing?", "MSR Notepad Warning", MessageBoxButtons.YesNoCancel);
+                if(result == DialogResult.Yes)
                 {
                     if (string.IsNullOrEmpty(filePath))
                     {
@@ -756,6 +766,16 @@ namespace Notepad__
 
             sfd.FileName = "new.php";
             sfd.Filter = "PHP Language | *.php";
+        }
+
+        private void mD5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ToolsMD5().Show();
+        }
+
+        private void sHA1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 

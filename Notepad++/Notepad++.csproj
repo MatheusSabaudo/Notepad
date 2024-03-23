@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ToolsMD5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolsMD5.Designer.cs">
+      <DependentUpon>ToolsMD5.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindReplace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolsSHA1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolsSHA1.Designer.cs">
+      <DependentUpon>ToolsSHA1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsSHA256.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolsSHA256.Designer.cs">
+      <DependentUpon>ToolsSHA256.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolsSHA512.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolsSHA512.Designer.cs">
+      <DependentUpon>ToolsSHA512.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ToolsMD5.resx">
+      <DependentUpon>ToolsMD5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FindReplace.resx">
       <DependentUpon>FindReplace.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +121,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToolsSHA1.resx">
+      <DependentUpon>ToolsSHA1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsSHA256.resx">
+      <DependentUpon>ToolsSHA256.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolsSHA512.resx">
+      <DependentUpon>ToolsSHA512.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
